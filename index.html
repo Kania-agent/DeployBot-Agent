@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeployBot-Agent — CI/CD Pipeline Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>🤖 <span class="accent">Deploy</span>Bot-Agent</h1>
+    <div class="header-actions">
+      <div class="env-tabs">
+        <button class="env-tab active">Development</button>
+        <button class="env-tab">Staging</button>
+        <button class="env-tab">Production</button>
+      </div>
+      <button class="btn btn-deploy" id="btnDeploy">🚀 Deploy</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div>
+      <!-- Pipeline Visualization -->
+      <div class="pipeline-card">
+        <div class="card-header">
+          <h2>⚡ Pipeline Stages</h2>
+          <span style="font-size:0.75rem; color: var(--text-muted)">Latest run</span>
+        </div>
+        <div class="pipeline-stages">
+          <div class="stage pending">
+            <span class="stage-icon">📋</span>
+            <div class="stage-name">Source</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+          <div class="stage pending">
+            <span class="stage-icon">🔨</span>
+            <div class="stage-name">Build</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+          <div class="stage pending">
+            <span class="stage-icon">🧪</span>
+            <div class="stage-name">Test</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+          <div class="stage pending">
+            <span class="stage-icon">🔒</span>
+            <div class="stage-name">Scan</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+          <div class="stage pending">
+            <span class="stage-icon">🚀</span>
+            <div class="stage-name">Deploy</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+          <div class="stage pending">
+            <span class="stage-icon">✅</span>
+            <div class="stage-name">Verify</div>
+            <div class="stage-status">Pending</div>
+            <div class="stage-time"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment History -->
+      <div class="pipeline-card">
+        <div class="card-header">
+          <h2>📜 Deployment History</h2>
+        </div>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Version</th>
+              <th>Commit</th>
+              <th>Env</th>
+              <th>Status</th>
+              <th>Duration</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Right: Deployment Log -->
+    <div class="log-panel">
+      <div class="log-header">
+        <h2>📝 Deployment Log</h2>
+        <div class="log-filter">
+          <button class="log-filter-btn active">All</button>
+          <button class="log-filter-btn">Errors</button>
+          <button class="log-filter-btn">Success</button>
+        </div>
+      </div>
+      <div class="log-content" id="logContent"></div>
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-value" style="color: var(--accent-green)">7</div>
+          <div class="stat-label">Deploys</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" style="color: var(--accent-blue)">86%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" style="color: var(--accent-purple)">4m</div>
+          <div class="stat-label">Avg Duration</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
